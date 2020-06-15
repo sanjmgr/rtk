@@ -7,15 +7,23 @@ import React, {
 } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { Todo, State } from '../type';
+import { State } from '../type';
 import './App.css';
+// import {
+//   createTodoActionCreator,
+//   selectTodoActionCreator,
+//   editTodoActionCreator,
+//   toggleTodoActionCreator,
+//   deleteTodoActionCreator,
+// } from '../redux-og';
+
 import {
   createTodoActionCreator,
-  SelectTodoActionCreator,
+  selectTodoActionCreator,
   editTodoActionCreator,
-  ToggleTodoActionCreator,
-  DeleteTodoActionCreator,
-} from '../redux-og';
+  toggleTodoActionCreator,
+  deleteTodoActionCreator,
+} from '../redux-toolkit';
 
 const App = function() {
   const dispatch = useDispatch();
@@ -30,6 +38,8 @@ const App = function() {
 
   const selectedTodo =
     (selectedTodoId && todos.find(todo => todo.id === selectedTodoId)) || null;
+
+  console.log({ selectedTodoId, selectedTodo });
 
   const handleNewInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setNewTodoInput(e.target.value);
@@ -47,7 +57,7 @@ const App = function() {
   };
 
   const handleSelectTodo = (todoId: string) => (): void => {
-    dispatch(SelectTodoActionCreator({ id: todoId }));
+    dispatch(selectTodoActionCreator({ id: todoId }));
   };
 
   const handleEdit = (): void => {
@@ -90,7 +100,7 @@ const App = function() {
     if (!selectedTodoId || !selectedTodo) return;
 
     dispatch(
-      ToggleTodoActionCreator({
+      toggleTodoActionCreator({
         id: selectedTodoId,
         isComplete: !selectedTodo.isComplete,
       })
@@ -99,7 +109,7 @@ const App = function() {
 
   const handleDelete = (): void => {
     if (!selectedTodoId) return;
-    dispatch(DeleteTodoActionCreator({ id: selectedTodoId }));
+    dispatch(deleteTodoActionCreator({ id: selectedTodoId }));
   };
 
   return (

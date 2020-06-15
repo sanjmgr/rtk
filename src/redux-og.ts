@@ -53,7 +53,7 @@ interface ToggleTodoActionType {
   payload: { id: string; isComplete: boolean };
 }
 
-export const ToggleTodoActionCreator = ({
+export const toggleTodoActionCreator = ({
   id,
   isComplete,
 }: {
@@ -74,7 +74,7 @@ interface DeleteTodoActionType {
   payload: { id: string };
 }
 
-export const DeleteTodoActionCreator = ({
+export const deleteTodoActionCreator = ({
   id,
 }: {
   id: string;
@@ -94,7 +94,7 @@ interface SelectTodoActionType {
   };
 }
 
-export const SelectTodoActionCreator = ({
+export const selectTodoActionCreator = ({
   id,
 }: {
   id: string;
@@ -179,10 +179,7 @@ const selectedTodoReducer = (
   }
 };
 
-const counterReducer = (
-  state: number = 0,
-  { type, payload }: TodoActionTypes
-) => {
+const counterReducer = (state: number = 0, { type }: TodoActionTypes) => {
   switch (type) {
     case 'CREATE_TODO':
     case 'DELETE_TODO':
