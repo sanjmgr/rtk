@@ -39,8 +39,6 @@ const App = function() {
   const selectedTodo =
     (selectedTodoId && todos.find(todo => todo.id === selectedTodoId)) || null;
 
-  console.log({ selectedTodoId, selectedTodo });
-
   const handleNewInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setNewTodoInput(e.target.value);
   };
@@ -136,8 +134,7 @@ const App = function() {
                 todo.id === selectedTodoId ? 'active' : ''
               }`}
               key={todo.id}
-              onClick={handleSelectTodo(todo.id)}
-            >
+              onClick={handleSelectTodo(todo.id)}>
               <span className='list-number'>{i + 1})</span> {todo.desc}
             </li>
           ))}
@@ -151,8 +148,7 @@ const App = function() {
               <span
                 className={`todo-desc ${
                   selectedTodo?.isComplete ? 'done' : ''
-                }`}
-              >
+                }`}>
                 {selectedTodo.desc}
               </span>
               <div className='todo-actions'>
