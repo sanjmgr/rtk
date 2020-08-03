@@ -1,6 +1,4 @@
-Live Demo:
-
- [rtk](https://sanjaymagar.github.io/rtk/)
+[Live Demo](https://sanjaymagar.github.io/rtk/)
 
 his is the starting place in conjunction with my **Redux Toolkit** comparison video. Please start here. NOTE: no dependencies related to Redux are installed here! Please follow along in the video and add them with me!
 
