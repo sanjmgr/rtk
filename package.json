@@ -2,7 +2,7 @@
   "name": "rtk",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://sanjaymagar.github.io/rtk/",
+  "homepage": "https://sanjmgr.github.io/rtk/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.3.6",
     "@testing-library/jest-dom": "^4.2.4",
